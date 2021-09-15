@@ -1,0 +1,19 @@
+{
+   "categoryName":"Household",
+   "categoryData":{
+      "householdId":1,
+      "createdUserId":10,
+      "updatedUserId":11,
+      "dateCreated":1600773436000,
+      "dateUpdated":1629446581000,
+      "address":"Yerevan",
+      "members":[
+         {
+            "personId":20,
+            "first_name":"John",
+            "last_name":"Smith",
+            "age":40
+         }
+      ]
+   }
+}
