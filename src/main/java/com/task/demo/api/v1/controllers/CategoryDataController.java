@@ -4,12 +4,11 @@ import com.task.demo.api.v1.models.CategoryDataModel;
 import com.task.demo.service.CategoryDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/categoryData")
+@RequestMapping("${url.base.path}"+"/categoryData")
 public class CategoryDataController {
 
     @Autowired

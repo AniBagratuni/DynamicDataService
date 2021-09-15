@@ -5,10 +5,6 @@ import com.task.demo.api.v1.models.FieldModel;
 import com.task.demo.api.v1.models.ValidationModel;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,20 +71,8 @@ public class CategoryServiceImpl implements CategoryService {
 
             }
             log.info("The category models are created");
-        } catch (Exception e) {
-            throw new BadRequestException("Create Category", e);
-        }
-
-        try {
-            Path copied = Paths.get(applicationConfig.getClassPath());
-            Path originalPath = Paths.get(applicationConfig.getJavaPath());
-            Files.move(originalPath, copied, StandardCopyOption.REPLACE_EXISTING);
-
-            log.info("The class of the category models are moved");
-
             customValidationService.addValidations(customValidationList);
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new BadRequestException("Create Category", e);
         }
     }

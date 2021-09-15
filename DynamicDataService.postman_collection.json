@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "6584c434-7dec-40e5-91f0-b3b8bdb49fd5",
+		"name": "DynamicDataService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateMetadata",
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"followRedirects": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n      \"name\":\"Household\",\n      \"fields\":[\n         {\n            \"name\":\"householdId\",\n            \"type\":\"IDENTITY\"\n         },\n         {\n            \"name\":\"createdUserId\",\n            \"type\":\"INTEGER\"\n         },\n         {\n            \"name\":\"updatedUserId\",\n            \"type\":\"INTEGER\"\n         },\n         {\n            \"name\":\"dateCreated\",\n            \"type\":\"DATE\"\n         },\n         {\n            \"name\":\"dateUpdated\",\n            \"type\":\"DATETIME\"\n         },\n         {\n            \"name\":\"address\",\n            \"type\":\"STRING\",\n            \"validations\":[\n               {\n                  \"type\":\"REQUIRED\"\n               },\n                {\n                  \"type\":\"CUSTOM\",\n                  \"value\" : \"boolean zibil(String a) { return true;}\"\n               }\n            ]\n         },\n         {\n            \"name\":\"members\",\n            \"type\":\"SUB_CATEGORY\",\n            \"subCategory\":\"Person\"\n         }\n      ],\n      \"isChild\":false\n   },\n   {\n      \"name\":\"Person\",\n      \"fields\":[\n         {\n            \"name\":\"personId\",\n            \"type\":\"IDENTITY\"\n         },\n         {\n            \"name\":\"first_name\",\n            \"type\":\"STRING\",\n            \"validations\":[\n               {\n                  \"type\":\"REGEXP\",\n                  \"value\":\"[a-zA-z]+\"\n               }\n            ]\n         },\n         {\n            \"name\":\"last_name\",\n            \"type\":\"STRING\",\n            \"validations\":[\n               {\n                  \"type\":\"REGEXP\",\n                  \"value\":\"[a-zA-z]+\"\n               }\n            ]\n         },\n         {\n            \"name\":\"age\",\n            \"type\":\"INTEGER\",\n            \"validations\":[\n               {\n                  \"type\":\"REQUIRED\"\n               }\n            ]\n         }\n      ],\n      \"isChild\":true\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/category",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddData",
+			"protocolProfileBehavior": {
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"categoryName\":\"Household\",\n   \"categoryData\": \"{\\\"householdId\\\":1,\\\"createdUserId\\\":10,\\\"updatedUserId\\\":11,\\\"dateCreated\\\":\\\"2021-09-13 10:03:56\\\",\\\"dateUpdated\\\":1629446581000,\\\"address\\\":\\\"Yerevan\\\",\\\"members\\\":[{\\\"personId\\\":20,\\\"first_name\\\":\\\"John\\\",\\\"last_name\\\":\\\"Smith\\\",\\\"age\\\":40}]}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/categoryData",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"categoryData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateData",
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"followRedirects": false
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"categoryName\":\"Household\",\n   \"categoryData\": \"{\\\"householdId\\\":1,\\\"createdUserId\\\":10,\\\"updatedUserId\\\":11,\\\"dateUpdated\\\":1629446581000,\\\"address\\\":\\\"Yerevan1\\\",\\\"members\\\":[{\\\"personId\\\":20,\\\"first_name\\\":\\\"John\\\",\\\"last_name\\\":\\\"Smith\\\",\\\"age\\\":40}]}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/categoryData",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"categoryData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteData",
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"followRedirects": false
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"categoryName\":\"Household\",\n   \"categoryData\": \"{\\\"householdId\\\":1}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/categoryData",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"categoryData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetData",
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"followRedirects": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/categoryData/Household/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"categoryData",
+						"Household",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

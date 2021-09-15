@@ -45,10 +45,6 @@ public class ApplicationConfig {
     }
 
     public String getJavaPath() {
-        return projectPath + generatedJavaPath;
-    }
-
-    public String getClassPath() {
         return projectPath + generatedClassPath;
     }
 

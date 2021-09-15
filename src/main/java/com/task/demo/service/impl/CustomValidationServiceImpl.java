@@ -21,7 +21,11 @@ public class CustomValidationServiceImpl implements CustomValidationService {
 
     @Override
     public void addValidations(List<CustomValidation> customValidationList) {
-        customValidationRepository.saveAll(customValidationList);
+        try {
+            customValidationRepository.saveAll(customValidationList);
+        } catch (Exception ex) {
+
+        }
     }
 
     @Override

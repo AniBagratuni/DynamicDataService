@@ -13,14 +13,18 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+	implementation(
+	'org.springframework.boot:spring-boot-starter-data-jpa',
+	'org.springframework.boot:spring-boot-starter-web',
+	'org.springframework.boot:spring-boot-starter-validation',
+	group: 'mysql', name: 'mysql-connector-java', version: '5.1.13',
+	'org.springdoc:springdoc-openapi-ui:1.2.32'
+	)
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// https://mvnrepository.com/artifact/junit/junit
-	testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+	testImplementation(
+			'org.springframework.boot:spring-boot-starter-test',
+			group: 'junit', name: 'junit', version: '4.13.2',
+	)
 
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
