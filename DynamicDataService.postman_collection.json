@@ -53,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"categoryName\":\"Household\",\n   \"categoryData\": \"{\\\"householdId\\\":1,\\\"createdUserId\\\":10,\\\"updatedUserId\\\":11,\\\"dateCreated\\\":\\\"2021-09-13 10:03:56\\\",\\\"dateUpdated\\\":1629446581000,\\\"address\\\":\\\"Yerevan\\\",\\\"members\\\":[{\\\"personId\\\":20,\\\"first_name\\\":\\\"John\\\",\\\"last_name\\\":\\\"Smith\\\",\\\"age\\\":40}]}\"\n}",
+					"raw": "{\n   \"categoryName\":\"Household\",\n   \"categoryData\": \"{\\\"householdId\\\":1,\\\"createdUserId\\\":10,\\\"updatedUserId\\\":11,\\\"dateUpdated\\\":1629446581000,\\\"address\\\":\\\"Yerevan\\\",\\\"members\\\":[{\\\"personId\\\":20,\\\"first_name\\\":\\\"John\\\",\\\"last_name\\\":\\\"Smith\\\",\\\"age\\\":40}]}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -127,7 +127,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"categoryName\":\"Household\",\n   \"categoryData\": \"{\\\"householdId\\\":1}\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -135,7 +135,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8080/api/v1/categoryData",
+					"raw": "http://127.0.0.1:8080/api/v1/categoryData/Household/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -147,7 +147,9 @@
 					"path": [
 						"api",
 						"v1",
-						"categoryData"
+						"categoryData",
+						"Household",
+						"1"
 					]
 				}
 			},
